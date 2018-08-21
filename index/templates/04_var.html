@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>doc</title>
+</head>
+<body>
+	{% for name in list %}
+		{% comment %}
+		<h3 
+			{% if forloop.first %}
+				style='color:red;'
+			{% endif %}
+			{% if forloop.last %}
+				style='color:blue;'
+			{% endif %}
+		>
+			{{forloop.counter}}.{{name}}
+		</h3>
+		{% endcomment %}
+		<h3 
+			{% comment %}
+			{% if forloop.first %}
+				style="color: red;"
+			{% endif %} 
+			{% endcomment %}
+			{% comment %}
+			style='color:
+				{% if forloop.first %}
+					red
+				{% else %}
+					blue
+				{% endif %}
+			;'
+			{% endcomment %}
+			{% if forloop.first %}
+				style="color:red;"
+			{% elif forloop.last %} 
+				style="color: blue;"
+			{% else %}
+				style="color: pink;" 
+			{% endif %} 
+		>
+			{{forloop.counter}}.{{name}}
+		</h3>
+		<p>当前元素下标：{{forloop.counter0}}</p>
+		<p>是第一次循环码？{{forloop.first}}</p>
+		<p>是最后一次循环码？{{forloop.last}}</p>
+	{% endfor %}
+	<h3>num:{{num}}</h3>
+	<h3>str:{{str}}</h3>
+	<h3>list:{{list}}</h3>
+	<h3>tup:{{tup}}</h3>
+	<h3>dic:{{dic}}</h3>
+	<h3>dic['C']:{{dic.C}}</h3>
+	<h3>fun:{{fun}}</h3>
+	<h3>A.a:{{A.a}}</h3>
+	<h3>A.f:{{A.f}}</h3>
+	{% comment %}
+		这是服务器端注释
+	{% endcomment %}
+</body>
+</html>
